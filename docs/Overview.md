@@ -1,10 +1,10 @@
 # reflexive-closure-lean — Overview
 
-This document describes the structure and usage of the reflexive-closure-lean library, which formalizes Papers 52–65 of the NEMS suite (the reflexive-closure arc).
+This document describes the structure and usage of the reflexive-closure-lean library, which formalizes Papers 52–70 of the NEMS suite (the reflexive-closure arc).
 
 ## Dependency
 
-reflexive-closure-lean **imports** nems-lean as a package dependency. Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge; Papers 52–65 build here.
+reflexive-closure-lean **imports** nems-lean as a package dependency. Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge; Papers 52–70 build here.
 
 ```
 reflexive-closure-lean  →  nems-lean
@@ -30,6 +30,11 @@ nems-lean must be at `../nems-lean` relative to this repo (sibling directory). E
 | Alpha | 63 | GhostCollapse, LedgerGround; bridges to nems-lean Closure |
 | GroundedExistence | 64 | Alpha |
 | QualiaAlphaGrounded | 65 | SyntaxSemantics, QualiaLedger, Alpha, GroundedExistence |
+| GroundManifestation | 66 | QualiaAlphaGrounded, GroundedExistence, Alpha |
+| AwarenessGround | 67 | GroundManifestation; bridges to nems-lean SelfAwareness |
+| AlphaNonNull | 68 | GroundedExistence, GroundManifestation, AwarenessGround |
+| UnifiedPresence | 69 | RealityAsRecursiveIntelligence, GroundedExistence, GroundManifestation, AwarenessGround, AlphaNonNull; bridges to ReflexiveClosure (56) |
+| GoldenBridge | 70 | UnifiedPresence |
 
 ## Thematic Arc
 
@@ -37,11 +42,13 @@ nems-lean must be at `../nems-lean` relative to this repo (sibling directory). E
 
 2. **Qualia and ledger (55):** Known qualia must be on the semantic ledger and are irreducible to syntax.
 
-3. **Reflexive closure (56–57):** Closure without collapse; reflexive unfolding cannot halt; no terminal completion.
+3. **Reflexive closure (56–57):** Closure without collapse; reflexive unfolding cannot halt; no terminal completion. Paper 56 also proves binary insufficiency and minimal ternary closure form.
 
 4. **Intelligence (58–60):** Necessary adjudication; calculus of intelligence; reality as recursively intelligent.
 
 5. **Grounding (61–65):** Ghost collapse; no self-actualizing ledger; Alpha theorem; grounded existence; qualia as Alpha-grounded content.
+
+6. **Golden Bridge arc (66–70):** Phenomenal presence and ground-manifestation; awareness as locus of ground-presence; Alpha non-null; unified presence (ground, articulation, manifestation-in-awareness); the Golden Bridge as final integrated statement.
 
 ## Build
 

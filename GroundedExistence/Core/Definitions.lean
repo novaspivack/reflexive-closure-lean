@@ -42,6 +42,16 @@ def GroundedInAlpha (x : Entity) : Prop :=
       SelfActualizingLedger α R ∧ ContentOf x R ∧ LedgerActuality R
 
 /--
+**GroundedInAlphaWitnessed (x) (α) (R)** — The witnessed form: α grounds R, x is
+content of R, and R is actual. Implies GroundedInAlpha x. Used when (α, R) must
+be structurally tied (e.g. for manifestation_implies_grounding in Paper 68).
+-/
+def GroundedInAlphaWitnessed (x : Entity) (α : Ground) (R : Ledger) : Prop :=
+  @NecessaryGround Ledger Ground OntologicalGround GroundIsSyntax
+    GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
+    SelfActualizingLedger α R ∧ ContentOf x R ∧ LedgerActuality R
+
+/--
 **SameLevelPrior (g' g)** — Ground g' is same-level prior to g when g' grounds
 everything g grounds. So g' is "upstream" of g in the grounding structure.
 -/
@@ -52,7 +62,7 @@ def SameLevelPrior (g' g : Ground) : Prop :=
 **GroundedByOther (g)** — Ground g is grounded by another same-level entity.
 -/
 def GroundedByOther (g : Ground) : Prop :=
-  ∃ (g' : Ground), SameLevelPrior g' g
+  ∃ (g' : Ground), @SameLevelPrior Ledger Ground OntologicalGround g' g
 
 /--
 **ObjectLevel (g)** — Ground g is syntax, object-level semantics, or ledger content.
@@ -75,7 +85,7 @@ and derivative grounds are not sufficient.
 def AlphaTerminus (α : Ground) (R : Ledger) : Prop :=
   @NecessaryGround Ledger Ground OntologicalGround GroundIsSyntax
     GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
-    SelfActualizingLedger α R ∧ ¬GroundedByOther α
+    SelfActualizingLedger α R ∧ ¬@GroundedByOther Ledger Ground OntologicalGround α
 
 /--
 **Primordial (g)** — Ground g is pre-categorial and the terminus of same-level grounding.
@@ -83,7 +93,7 @@ def AlphaTerminus (α : Ground) (R : Ledger) : Prop :=
 def Primordial (g : Ground) (R : Ledger) : Prop :=
   @Alpha.PreCategorial Ledger Ground GroundIsSyntax GroundIsObjectLevelSemantics
     GroundIsExternalEqualStatus GroundIsGhost SelfActualizingLedger g R ∧
-  ¬GroundedByOther g
+  ¬@GroundedByOther Ledger Ground OntologicalGround g
 
 /--
 **SufficientGround (g) (R)** — Ground g provides sufficient ontological ground for R.
@@ -103,8 +113,8 @@ This is the local principle that replaces well-foundedness: we do not assume
 From this: NecessaryGround(α,R) ⇒ SufficientGround(α,R) ⇒ ¬GroundedByOther(α).
 -/
 axiom grounded_by_other_implies_not_sufficient_ground
-  (g : Ground) (R : Ledger) (hDeriv : GroundedByOther g) :
-  ¬SufficientGround g R
+  (g : Ground) (R : Ledger) (hDeriv : @GroundedByOther Ledger Ground OntologicalGround g) :
+  ¬@SufficientGround Ledger Ground OntologicalGround g R
 
 /--
 **NullGround (g)** — Ground g is vacuous or fails to ground any actuality.

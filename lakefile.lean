@@ -45,3 +45,18 @@ lean_lib «GroundedExistence» where
 
 lean_lib «QualiaAlphaGrounded» where
   -- Paper 65: Qualia as Alpha-Grounded Semantic Content
+
+lean_lib «GroundManifestation» where
+  -- Paper 66: Phenomenal Presence and Ground-Manifestation
+
+lean_lib «AwarenessGround» where
+  -- Paper 67: Awareness as the Locus of Ground-Presence
+
+lean_lib «AlphaNonNull» where
+  -- Paper 68: Alpha Is Not Null
+
+lean_lib «UnifiedPresence» where
+  -- Paper 69: Reality, Existence, and Awareness
+
+lean_lib «GoldenBridge» where
+  -- Paper 70: The Golden Bridge

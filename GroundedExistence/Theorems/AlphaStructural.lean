@@ -37,15 +37,19 @@ is sufficient; derivative grounds are not. So NecessaryGround(α,R) ⇒
 ¬GroundedByOther(α). The existence of such α is given by alpha_terminus.
 -/
 theorem alpha_not_grounded_by_other (α : Ground) (R : Ledger)
-  (hTerm : AlphaTerminus α R) :
-  ¬GroundedByOther α :=
+  (hTerm : @AlphaTerminus Ledger Ground OntologicalGround GroundIsSyntax
+    GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
+    SelfActualizingLedger α R) :
+  ¬@GroundedByOther Ledger Ground OntologicalGround α :=
   hTerm.2
 
 /--
 **Theorem 64.3:** Alpha is not object-level (syntax/semantics).
 -/
 theorem alpha_not_object_level (α : Ground) (R : Ledger)
-  (hTerm : AlphaTerminus α R) :
+  (hTerm : @AlphaTerminus Ledger Ground OntologicalGround GroundIsSyntax
+    GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
+    SelfActualizingLedger α R) :
   ¬@ObjectLevel Ground GroundIsSyntax GroundIsObjectLevelSemantics α :=
   fun h => match h with
   | Or.inl hSyn => hTerm.1.2.1 hSyn
@@ -65,7 +69,9 @@ theorem alpha_not_temporalized (α : Ground)
 **Theorem 64.5:** Alpha is primordial.
 -/
 theorem alpha_primordial (α : Ground) (R : Ledger)
-  (hTerm : AlphaTerminus α R) :
+  (hTerm : @AlphaTerminus Ledger Ground OntologicalGround GroundIsSyntax
+    GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
+    SelfActualizingLedger α R) :
   @GroundedExistence.Primordial Ledger Ground OntologicalGround GroundIsSyntax
     GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
     SelfActualizingLedger α R :=
@@ -75,8 +81,10 @@ theorem alpha_primordial (α : Ground) (R : Ledger)
 **Theorem 64.6:** Alpha is not null.
 -/
 theorem alpha_not_null (α : Ground) (R : Ledger)
-  (hTerm : AlphaTerminus α R) :
-  ¬NullGround α :=
+  (hTerm : @AlphaTerminus Ledger Ground OntologicalGround GroundIsSyntax
+    GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
+    SelfActualizingLedger α R) :
+  ¬@NullGround Ledger Ground OntologicalGround α :=
   fun h => h R hTerm.1.1
 
 /--
@@ -91,7 +99,9 @@ axiom anti_infinite_regress :
 **Theorem 64.8:** Alpha is not mere infinity.
 -/
 theorem alpha_not_mere_infinity (α : Ground) (R : Ledger)
-  (_hTerm : AlphaTerminus α R) :
+  (_hTerm : @AlphaTerminus Ledger Ground OntologicalGround GroundIsSyntax
+    GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
+    SelfActualizingLedger α R) :
   ¬MereInfinity α :=
   id
 

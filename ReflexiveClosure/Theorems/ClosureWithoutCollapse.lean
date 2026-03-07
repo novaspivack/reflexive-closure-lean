@@ -89,7 +89,7 @@ theorem no_self_coincidence_via_syntactic_exhaustion
     (hRealized : S.internallyRealized)
     (hEx : SyntaxSemantics.SemanticExhaustive F S) :
     False := by
-  have hCoincide := ImplicationLadder.syntactic_exhaustion_implies_self_coinciding F S hRealized hEx
+  have hCoincide := syntactic_exhaustion_implies_self_coinciding F S hRealized hEx
   exact no_self_coincidence F (SyntaxSemantics.inducedSelfTheory F S) yesClaimFor hCoincide
 
 /--
@@ -115,7 +115,7 @@ between system and complete self-image cannot be closed.
 -/
 theorem irreducible_reflexive_distance_under_diagonal
     (yesClaimFor : ∀ T : InternalSelfTheory F, ∀ c : F.Code, YesClaimData F T c) :
-    ReflexiveClosure.Core.SelfCoincidence.IrreducibleReflexiveDistance F := by
+    IrreducibleReflexiveDistance F := by
   intro T hFinal
   have hCoincide : SelfCoinciding F T := hFinal
   exact no_self_coincidence F T (yesClaimFor T) hCoincide

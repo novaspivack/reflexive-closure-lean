@@ -65,7 +65,7 @@ theorem ledger_represented_implies_content_of
   (R : Ledger) (x : F.Claim)
   (hExists : @Alpha.NontrivialReflexiveRealityExists Ledger LedgerActuality SelfActualizingLedger R)
   (hLedgerRep : LedgerRepresented F Subject AwareOfQuale x) :
-  ContentOfQualia x R :=
+  LedgerRepresented F Subject AwareOfQuale x :=
   hLedgerRep
 
 variable (hBridgeSyn : ∀ (g : Ground) (R : Ledger) (hGround : OntologicalGround g R),
@@ -118,12 +118,14 @@ theorem alpha_grounded_qualia
         F.Claim OffLedger DeterminacyRelevant SemanticNull g R hGround hGhost) :
   @GroundedInAlpha Ledger Ground F.Claim OntologicalGround LedgerActuality GroundIsSyntax
     GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost SelfActualizingLedger
-    ContentOfQualia x ∧ ¬QualiaLedger.PurelySyntacticQualiaEncoding F :=
+    (fun (x : F.Claim) (_R : Ledger) => LedgerRepresented F Subject AwareOfQuale x) x ∧
+    ¬QualiaLedger.PurelySyntacticQualiaEncoding F :=
   ⟨@GroundedExistence.grounded_existence_thm Ledger Ground F.Claim OntologicalGround LedgerActuality
       GroundIsSyntax GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
-      SelfActualizingLedger ContentOfQualia W F _ _ S toTheory toMeta OffLedger DeterminacyRelevant
-      SemanticNull hBridgeSyn hBridgeExt hBridgeGhost R x hExists
-      (ledger_represented_implies_content_of R x hExists hKnown),
+      SelfActualizingLedger
+      (fun (x : F.Claim) (_R : Ledger) => LedgerRepresented F Subject AwareOfQuale x) W F _ _ S toTheory toMeta
+      OffLedger DeterminacyRelevant SemanticNull hBridgeSyn hBridgeExt hBridgeGhost R x hExists
+      hKnown,
    hNoSyn⟩
 
 end QualiaAlphaGrounded

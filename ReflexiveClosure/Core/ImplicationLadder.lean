@@ -1,3 +1,9 @@
+import SemanticSelfDescription.Core.Claims
+import SemanticSelfDescription.Core.SelfTheory
+import SemanticSelfReference.Theorems.ObserverCorollary
+import SyntaxSemantics.Core.SyntacticTheory
+import ReflexiveClosure.Core.SelfCoincidence
+
 /-!
 # ReflexiveClosure.Core.ImplicationLadder
 
@@ -11,12 +17,6 @@ the summit theorem (¬SelfCoinciding) unifies all earlier impossibilities.
 - CompleteObserverModel ⇒ SelfCoinciding (observer self-model = internal theory)
 - Qualia-as-syntax exhaustion would also imply SelfCoinciding (Paper 55)
 -/
-
-import SemanticSelfDescription.Core.Claims
-import SemanticSelfDescription.Core.SelfTheory
-import SemanticSelfReference.Theorems.ObserverCorollary
-import SyntaxSemantics.Core.SyntacticTheory
-import ReflexiveClosure.Core.SelfCoincidence
 
 set_option autoImplicit false
 

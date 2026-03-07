@@ -1,6 +1,6 @@
 # reflexive-closure-lean
 
-Lean 4 formalization of the **reflexive-closure arc** (Papers 52–65) of the NEMS suite: direct self-semantic fixed points, syntax-semantics separation, observer corollaries, qualia and the ledger, reflexive closure theorem, reflexive unfolding, necessary reflexive intelligence, calculus of intelligence, reality as recursive intelligence, ghost collapse, ledger grounding, Alpha theorem, grounded existence, and qualia as Alpha-grounded content.
+Lean 4 formalization of the **reflexive-closure arc** (Papers 52–70) of the NEMS suite: direct self-semantic fixed points, syntax-semantics separation, observer corollaries, qualia and the ledger, reflexive closure theorem, reflexive unfolding, necessary reflexive intelligence, calculus of intelligence, reality as recursive intelligence, ghost collapse, ledger grounding, Alpha theorem, grounded existence, qualia as Alpha-grounded content, phenomenal presence and ground-manifestation, awareness as locus of ground-presence, Alpha non-null, unified presence (ground, articulation, manifestation), and the Golden Bridge.
 
 ## Dependency
 
@@ -10,7 +10,7 @@ This repo **imports** [nems-lean](https://github.com/novaspivack/nems-lean) as a
 reflexive-closure-lean  →  nems-lean
 ```
 
-Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge. Papers 52–65 build here.
+Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge. Papers 52–70 build here.
 
 ## Build
 
@@ -41,10 +41,15 @@ lake build
 | Alpha | 63 | The Alpha Theorem |
 | GroundedExistence | 64 | Primordial ground and grounded existence |
 | QualiaAlphaGrounded | 65 | Qualia as Alpha-grounded semantic content |
+| GroundManifestation | 66 | Phenomenal presence and ground-manifestation |
+| AwarenessGround | 67 | Awareness as the locus of ground-presence |
+| AlphaNonNull | 68 | Alpha is not null |
+| UnifiedPresence | 69 | Reality, existence, and awareness: unified theorem |
+| GoldenBridge | 70 | The Golden Bridge: final liberation |
 
 ## Papers
 
-LaTeX papers live in the NEMS_PAPERS suite (`Physics_Papers/NEMS_PAPERS/52_*` through `65_*`). This repo is the Lean artifact. See **MANIFEST.md** for theorem tables and module layout.
+LaTeX papers live in the NEMS_PAPERS suite (`Physics_Papers/NEMS_PAPERS/52_*` through `70_*`). This repo is the Lean artifact. See **MANIFEST.md** for theorem tables and module layout.
 
 ## License
 

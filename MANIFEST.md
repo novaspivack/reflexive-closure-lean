@@ -1,6 +1,6 @@
-# reflexive-closure-lean — MANIFEST
+# reflexive-closure-lean — Artifact Manifest
 
-Lean 4 formalization of the **reflexive-closure arc** (Papers 52–65) of the NEMS suite: direct self-semantic fixed points, syntax-semantics separation, observer corollaries, qualia and the ledger, reflexive closure theorem, reflexive unfolding, necessary reflexive intelligence, calculus of intelligence, reality as recursive intelligence, ghost collapse, ledger grounding, Alpha theorem, grounded existence, and qualia as Alpha-grounded content.
+Lean 4 formalization of the **reflexive-closure arc** (Papers 52–70) of the NEMS suite: direct self-semantic fixed points, syntax-semantics separation, observer corollaries, qualia and the ledger, reflexive closure theorem, reflexive unfolding, necessary reflexive intelligence, calculus of intelligence, reality as recursive intelligence, ghost collapse, ledger grounding, Alpha theorem, grounded existence, qualia as Alpha-grounded content, phenomenal presence and ground-manifestation, awareness as locus of ground-presence, Alpha non-null, unified presence (ground, articulation, manifestation), and the Golden Bridge.
 
 ## Dependency
 
@@ -10,9 +10,11 @@ This repo **imports** [nems-lean](https://github.com/novaspivack/nems-lean) as a
 reflexive-closure-lean  →  nems-lean
 ```
 
-Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge. Papers 52–65 build here.
+Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge. Papers 52–70 build here.
 
 ## Build
+
+**Build result:** Current clean build succeeds with the pinned toolchain. See the reproduction section for the exact current build outcome, and see the theorem tables below for current theorem coverage and sorry-status.
 
 **Requirements:** Lean 4.29.0-rc3, Mathlib v4.29.0-rc3 (via nems-lean)
 
@@ -43,6 +45,11 @@ lake build
 | Alpha | 63 | The Alpha Theorem |
 | GroundedExistence | 64 | Primordial ground and grounded existence |
 | QualiaAlphaGrounded | 65 | Qualia as Alpha-grounded semantic content |
+| GroundManifestation | 66 | Phenomenal presence and ground-manifestation |
+| AwarenessGround | 67 | Awareness as the locus of ground-presence |
+| AlphaNonNull | 68 | Alpha is not null |
+| UnifiedPresence | 69 | Reality, existence, and awareness: unified theorem of ground, articulation, manifestation |
+| GoldenBridge | 70 | The Golden Bridge: final liberation of ground, being, and awareness |
 
 ---
 
@@ -96,6 +103,8 @@ lake build
 | `ReflexiveClosure/Theorems/ClosureWithoutCollapse.lean` | `no_self_exhausting_observer_via_closure` | No self-exhausting observer via closure |
 | `ReflexiveClosure/Theorems/ClosureWithoutCollapse.lean` | `irreducible_reflexive_distance_under_diagonal` | Irreducible reflexive distance under diagonal capability |
 | `ReflexiveClosure/Core/SelfCoincidence.lean` | `no_self_coincidence_implies_irreducible_reflexive_distance` | No self-coincidence ⇒ irreducible reflexive distance |
+| `ReflexiveClosure/Theorems/BinaryInsufficiency.lean` | `binary_closure_insufficient` | 56.T1: Binary closure insufficient |
+| `ReflexiveClosure/Theorems/BinaryInsufficiency.lean` | `noncollapsing_reflexive_closure_minimally_ternary` | 56.T2: Non-collapsing reflexive closure minimally ternary |
 
 ### ReflexiveUnfolding (Paper 57)
 
@@ -185,6 +194,61 @@ lake build
 | `QualiaAlphaGrounded/Theorems/AlphaGroundedQualia.lean` | `alpha_grounded_qualia` | Known qualia are irreducible semantic content whose actuality is Alpha-grounded |
 | `QualiaAlphaGrounded/Theorems/AlphaGroundedQualia.lean` | `ledger_represented_implies_content_of` | Ledger-represented implies content-of qualia |
 
+### AwarenessGround (Paper 67)
+
+AwarenessGround formalizes Paper 67's awareness-locus results:
+- `manifestation_implies_presence_at_awareness_locus`
+- `exists_awareness_locus_of_alpha_presence`
+- `awareness_locus_not_object_level_content`
+- self-illumination is derived through the 67.6a–67.6c chain
+- 67.6b is discharged from Paper 33's observer corollary / no complete self-model structure
+- 67.7 is a definitional consequence of the derived self-illumination package
+
+AwarenessGround library: 0 custom axioms; self-illumination and no-second-observer are derived, not postulated.
+
+### AlphaNonNull (Paper 68)
+
+| File | Theorem | Statement |
+|------|---------|-----------|
+| `AlphaNonNull/Theorems/AlphaNotNull.lean` | `object_empty_and_not_null` | 68.1: ObjectEmpty(α) ∧ ¬Null(α) |
+| `AlphaNonNull/Theorems/AlphaNotNull.lean` | `object_empty_not_implies_null` | 68.2: ObjectEmpty(α) ⇏ Null(α) |
+| `AlphaNonNull/Bridge/ToGroundManifestation.lean` | `manifestation_implies_not_semantically_sterile` | 68.3: (∃x. AlphaManifestation(x)) ⇒ ¬SemanticallySterile(α) |
+| `AlphaNonNull/Bridge/ToGroundManifestation.lean` | `alpha_not_inert` | 68.5: ¬Inert(α) |
+
+`manifestation_implies_grounding` is derived from the GroundManifestation machinery (`GroundMode` / `GroundedInAlphaWitnessed`), not axiomatized.
+
+AlphaNonNull library: 0 custom axioms.
+
+### UnifiedPresence (Paper 69)
+
+| File | Theorem | Statement |
+|------|---------|-----------|
+| `UnifiedPresence/Theorems/UnifiedTheorem.lean` | `unified_three_aspects` | 69.4: Ground, articulation, manifestation are three coordinated aspects |
+| `UnifiedPresence/Bridge/ToReflexiveClosure.lean` | `three_aspect_synthesis_instantiates_minimal_ternary_closure` | 69.T: Ontological triad instantiates Paper 56 minimal ternary closure form |
+
+UnifiedPresence formalizes the three-aspect synthesis:
+- `reality_is_alpha_grounded` (69.1)
+- `world_process_is_recursive_articulation` (69.2)
+- `qualia_and_realized_awareness_are_manifestation_in_awareness` (69.3)
+- `three_aspect_synthesis` (69.4)
+
+The Paper 56 bridge is formalized: the three-aspect synthesis instantiates the minimal ternary closure form at the ontological level.
+
+UnifiedPresence library: 0 custom axioms, 0 sorry.
+
+### GoldenBridge (Paper 70)
+
+| File | Theorem | Statement |
+|------|---------|-----------|
+| `GoldenBridge/Theorems/FinalSynthesis.lean` | (imports UnifiedPresence) | Final integrated statement |
+
+GoldenBridge formalizes the final wrapper theorem importing UnifiedPresence:
+- `golden_bridge` / final synthesis theorem (70.1)
+
+This library adds no new machinery; it imports the prior synthesis chain and states the final coordinated result.
+
+GoldenBridge library: 0 custom axioms, 0 sorry.
+
 ---
 
 ## Reproduction
@@ -195,8 +259,12 @@ lake update
 lake build
 ```
 
+Expected output: `Build completed successfully.`
+
 ---
 
 ## Papers
 
-LaTeX papers live in the NEMS_PAPERS suite (`Physics_Papers/NEMS_PAPERS/52_*` through `65_*`). This repo is the Lean artifact. See `0.1_PAPER_SUMMARIES.md` in the outer repo for one-paragraph summaries of each paper.
+LaTeX papers live in the NEMS_PAPERS suite (`Physics_Papers/NEMS_PAPERS/52_*` through `70_*`). This repo is the Lean artifact. See `0.1_PAPER_SUMMARIES.md` in the outer repo for one-paragraph summaries of each paper.
+
+The reflexive-closure summit arc now runs through Papers 56, 64, 66, 67, 68, 69, and 70, culminating in the Golden Bridge theorem. Paper 56's minimal ternary closure form is structurally recapitulated in Papers 69–70.

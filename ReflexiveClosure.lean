@@ -1,5 +1,6 @@
 import ReflexiveClosure.Core.SelfCoincidence
 import ReflexiveClosure.Theorems.ClosureWithoutCollapse
+import ReflexiveClosure.Theorems.BinaryInsufficiency
 
 /-!
 # ReflexiveClosure — Paper 56: The Reflexive Closure Theorem

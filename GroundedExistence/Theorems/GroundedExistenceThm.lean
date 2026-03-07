@@ -118,11 +118,11 @@ theorem alpha_terminus
         OffLedger DeterminacyRelevant SemanticNull g R hGround hGhost)
   (R : Ledger)
   (hExists : @NontrivialReflexiveRealityExists Ledger LedgerActuality SelfActualizingLedger R) :
-  ∃ α : Ground, @AlphaTerminus Ledger Ground OntologicalGround LedgerActuality GroundIsSyntax
+  ∃ α : Ground, @AlphaTerminus Ledger Ground OntologicalGround GroundIsSyntax
     GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost SelfActualizingLedger α R := by
   obtain ⟨α, hNG⟩ := alpha_theorem F S toTheory toMeta
     OffLedger DeterminacyRelevant SemanticNull hBridgeSyn hBridgeExt hBridgeGhost R hExists
-  have hTerm : ¬GroundedByOther α := by
+  have hTerm : ¬@GroundedByOther Ledger Ground OntologicalGround α := by
     intro hDeriv
     exact grounded_by_other_implies_not_sufficient_ground α R hDeriv hNG.1
   exact ⟨α, ⟨hNG, hTerm⟩⟩

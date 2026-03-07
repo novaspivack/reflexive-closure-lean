@@ -1,6 +1,7 @@
 import LedgerGround.Core.OntologicalGround
 import Alpha.Core.ReflexiveRealityExistence
 import GhostCollapse.Core.Principles
+import Mathlib.Tactic.ByContra
 
 /-!
 # Alpha.Theorems.GroundExistenceFromNoFreeBits
@@ -52,7 +53,6 @@ theorem ground_existence_from_no_free_bits
   let SemanticNull : Ledger → Prop := fun _ => False
   have hOff : OffLedger R := fun ⟨g, hG, _⟩ => hNoGround ⟨g, hG⟩
   have hDet : DeterminacyRelevant R := hExists.1
-  exact @no_free_bits_off_ledger_determinacy Ledger OffLedger DeterminacyRelevant SemanticNull
-    R hOff hDet
+  exact no_free_bits_off_ledger_determinacy OffLedger DeterminacyRelevant R hOff hDet
 
 end Alpha
