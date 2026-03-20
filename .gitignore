@@ -9,3 +9,8 @@
 *.swp
 *~
 .DS_Store
+
+# Local scripts
+scripts/local/
+build-monitor.log
+monitor-build.sh
