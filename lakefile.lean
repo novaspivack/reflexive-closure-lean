@@ -4,7 +4,8 @@ open Lake DSL
 package «reflexive-closure-lean» where
   -- Summit arc: Papers 52–60. Depends on nems-lean (Papers 26–51).
 
-require «nems-lean» from "../nems-lean"
+require «nems-lean» from git
+  "https://github.com/novaspivack/nems-lean.git" @ "d1379b2d6d01b1c652ae65b65e1fab97b9b6b6b3"
 
 @[default_target]
 lean_lib «SemanticSelfReference» where
