@@ -4,6 +4,9 @@ import ReflexiveUnfolding.Core.ArticulativeStructure
 import ReflexiveUnfolding.Core.LocalVsGlobal
 import ReflexiveUnfolding.Theorems.NoTerminalCompletion
 import ReflexiveUnfolding.Theorems.FromPaper56
+import ReflexiveUnfolding.Theorems.FunctionalNonExhaustion
+import ReflexiveUnfolding.Theorems.ArticulativeAscent
+import ReflexiveUnfolding.Bridge.StructuredForgetting
 import ReflexiveUnfolding.Bridge.ToRefinementFlow
 
 /-!

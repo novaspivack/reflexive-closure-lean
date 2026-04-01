@@ -106,6 +106,19 @@ lake build
 | `ReflexiveClosure/Theorems/BinaryInsufficiency.lean` | `binary_closure_insufficient` | 56.T1: Binary closure insufficient |
 | `ReflexiveClosure/Theorems/BinaryInsufficiency.lean` | `noncollapsing_reflexive_closure_minimally_ternary` | 56.T2: Non-collapsing reflexive closure minimally ternary |
 
+### Summit-2 bridge (structured forgetting; geometry-of-maps paper adjacency)
+
+Formal anchors in **reflexive-closure-lean** for *The Geometry of What Maps Forget*: local map forgetting, minimal representation/remainder interfaces, class-level invariants (“conservation”), and Paper 57 hook lemmas. **Trust boundary:** these are abstract (arbitrary types; no certification axioms). Endomorphism conservation uses `α → α`; mapping between distinct types is handled upstream in the universal residual package. Readings of “physical law,” “ontology,” or “motivation” remain interpretive even when the prose cites these interfaces.
+
+| File | Key declarations / theorems | Notes |
+|------|-----------------------------|--------|
+| `ReflexiveClosure/Core/MapForgetting.lean` | `ForgetsDistinction`, `HasForgetting`, `hasForgetting_iff_not_injective`, `representation_forgetting_theorem` | Single-map forgetting vs injectivity. |
+| `ReflexiveClosure/Core/RepresentationFrame.lean` | `RepSemanticRemainder`, `RepresentationExhaustive`, `RepresentationSelective`, `representation_selective_iff_rep_semantic_remainder` | Abstract frontier vs realized content (no Paper~57 import). |
+| `ReflexiveClosure/Core/FamilyConservation.lean` | `InvariantUnder`, `ClassInvariant`, `ConservationLaw`, `invariant_agrees_on_fiber`, `invariant_identifies_forgotten_distinctions`, `class_level_memory_vs_local_forgetting`, `conservation_complement_single_map_forgetting` | Class-level invariance `I ∘ f = I` for admissible families; formal duality with fiber collapse (invariants constant on fibers). |
+| `ReflexiveUnfolding/Bridge/StructuredForgetting.lean` | `semantic_remainder_eq_rep_semantic_remainder`, `semantic_remainder_iff_rep_semantic_remainder` | Aligns `RepresentationFrame` with Paper~57 `SemanticRemainder`. |
+| `ReflexiveUnfolding/Theorems/FunctionalNonExhaustion.lean` | `FunctionSemanticallyExhaustive`, `functional_non_exhaustion_theorem`, `no_terminal_functional_completion`, etc. | Internal-transform / “function” non-exhaustion (Paper~56/57 stack). |
+| `ReflexiveUnfolding/Theorems/ArticulativeAscent.lean` | `every_articulation_leaves_further_frontier`, `articulative_ascent_nonterminal`, `no_terminal_articulative_ascent_nat`, etc. | Abstract non-terminal articulation chains. |
+
 ### ReflexiveUnfolding (Paper 57)
 
 | File | Theorem | Statement |

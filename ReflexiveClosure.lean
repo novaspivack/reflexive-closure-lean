@@ -1,4 +1,7 @@
 import ReflexiveClosure.Core.SelfCoincidence
+import ReflexiveClosure.Core.MapForgetting
+import ReflexiveClosure.Core.FamilyConservation
+import ReflexiveClosure.Core.RepresentationFrame
 import ReflexiveClosure.Theorems.ClosureWithoutCollapse
 import ReflexiveClosure.Theorems.BinaryInsufficiency
 
