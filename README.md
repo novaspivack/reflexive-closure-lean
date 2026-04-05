@@ -49,7 +49,7 @@ lake build
 
 ## Papers
 
-LaTeX papers live in the NEMS_PAPERS suite (`Physics_Papers/NEMS_PAPERS/52_*` through `70_*`). This repo is the Lean artifact. See **MANIFEST.md** for theorem tables and module layout.
+Papers 52–70 of the NEMS suite are published on Zenodo as standalone preprints. This repo is the Lean artifact. See [MANIFEST.md](MANIFEST.md) for theorem tables and module layout, and [novaspivack.com/research](https://www.novaspivack.com/research) for DOI links.
 
 ## License
 
