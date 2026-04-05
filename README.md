@@ -54,3 +54,6 @@ LaTeX papers live in the NEMS_PAPERS suite (`Physics_Papers/NEMS_PAPERS/52_*` th
 ## License
 
 See [LICENSE](LICENSE).
+<!-- NOVA_ZPO_ZENODO_SOFTWARE_BEGIN -->
+**Archival software (Zenodo):** https://doi.org/10.5281/zenodo.19429233
+<!-- NOVA_ZPO_ZENODO_SOFTWARE_END -->
