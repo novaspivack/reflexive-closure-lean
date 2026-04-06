@@ -1,5 +1,23 @@
 # reflexive-closure-lean
 
+
+## Research Program
+
+This repository is part of the **Reflexive Reality** research program by [Nova Spivack](https://www.novaspivack.com/).
+
+**What this formalizes:** Papers 52–70 of the NEMS suite (reflexive closure theorem, reflexive unfolding, necessary reflexive intelligence, calculus of intelligence, Alpha theorem, awareness arc, Golden Bridge).
+
+| Link | Description |
+|------|-------------|
+| [Research page](https://www.novaspivack.com/research/) | Full index of all papers, programs, and Lean archives |
+| [Full abstracts](https://novaspivack.github.io/research/abstracts/#abs-b1-nems) | Complete abstract for this library's papers |
+| [Zenodo program hub](https://doi.org/10.5281/zenodo.19429270) | Citable DOI hub for the NEMS program |
+
+All results are machine-checked in Lean 4 with a zero-sorry policy on proof targets.
+See [MANIFEST.md](MANIFEST.md) for the sorry audit (if present).
+
+---
+
 Lean 4 formalization of the **reflexive-closure arc** (Papers 52–70) of the NEMS suite: direct self-semantic fixed points, syntax-semantics separation, observer corollaries, qualia and the ledger, reflexive closure theorem, reflexive unfolding, necessary reflexive intelligence, calculus of intelligence, reality as recursive intelligence, ghost collapse, ledger grounding, Alpha theorem, grounded existence, qualia as Alpha-grounded content, phenomenal presence and ground-manifestation, awareness as locus of ground-presence, Alpha non-null, unified presence (ground, articulation, manifestation), and the Golden Bridge.
 
 ## Dependency
