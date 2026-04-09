@@ -1,4 +1,5 @@
 import GoldenBridge.Theorems.FinalSynthesis
+import GoldenBridge.Theorems.MutualNecessity
 
 /-!
 # GoldenBridge — Paper 70: The Golden Bridge
