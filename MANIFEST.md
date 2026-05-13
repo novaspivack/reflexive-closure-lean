@@ -16,7 +16,7 @@ Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge. Papers 52â
 
 **Build result:** Current clean build succeeds with the pinned toolchain. See the reproduction section for the exact current build outcome, and see the theorem tables below for current theorem coverage and sorry-status.
 
-**Requirements:** Lean 4.29.0-rc3, Mathlib v4.29.0-rc3 (via nems-lean)
+**Requirements:** Lean 4.29.0-rc3, Mathlib v4.29.1 (via nems-lean)
 
 ```bash
 lake update

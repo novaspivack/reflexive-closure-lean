@@ -32,7 +32,7 @@ Paper 51 (SemanticSelfDescription) remains in nems-lean as the hinge. Papers 52â
 
 ## Build
 
-**Requirements:** Lean 4.29.0-rc3, Mathlib v4.29.0-rc3 (via nems-lean)
+**Requirements:** Lean 4.29.0-rc3, Mathlib v4.29.1 (via nems-lean)
 
 ```bash
 lake update
