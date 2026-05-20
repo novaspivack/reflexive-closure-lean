@@ -38,9 +38,9 @@ Alpha-grounded, and the frame is not purely syntactic, then x is in ground-mode.
 -/
 theorem manifestation_bridge (x : F.Claim) (α : Ground) (R : Ledger)
   (hPresence : PhenomenalPresence F Subject AwareOfQuale x)
-  (hGrounded : @GroundedExistence.GroundedInAlpha Ledger Ground F.Claim OntologicalGround
+  (hGrounded : @GroundedExistence.GroundedInAlphaWitnessed Ledger Ground F.Claim OntologicalGround
     LedgerActuality GroundIsSyntax GroundIsObjectLevelSemantics GroundIsExternalEqualStatus
-    GroundIsGhost SelfActualizingLedger ContentOf x)
+    GroundIsGhost SelfActualizingLedger ContentOf x α R)
   (hNoSyn : ¬QualiaLedger.PurelySyntacticQualiaEncoding F) :
   @GroundMode Ledger Ground OntologicalGround LedgerActuality GroundIsSyntax
     GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost

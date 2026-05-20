@@ -19,13 +19,10 @@ namespace QualiaLedger
 
 universe u v
 
-variable {W : Type u} (F : SemanticSelfDescription.SelfSemanticFrame W)
-variable (Subject : Type v)
-variable (AwareOfQuale : Subject → F.Claim → Prop)
--- DeterminacyRelevant: x affects determinacy-relevant system structure
--- (reports, memory, behavior, discrimination, self-models).
--- If off-ledger and determinacy-relevant, constitutes a "free bit" violating Paper 27.
-variable (DeterminacyRelevant : F.Claim → Prop)
+variable {W : Type u} {F : SemanticSelfDescription.SelfSemanticFrame W}
+variable {Subject : Type v}
+variable {AwareOfQuale : Subject → F.Claim → Prop}
+variable {DeterminacyRelevant : F.Claim → Prop}
 
 /--
 **ExplanatorilyInert (x)** — Qualitative content x makes no difference to any
@@ -57,7 +54,7 @@ theorem off_ledger_inert_or_illicit
     (DeterminacyRelevant x → False) ∨ ExplanatorilyInert x := by
   by_cases h : DeterminacyRelevant x
   · left
-    exact fun hD => off_ledger_determinacy_illicit F Subject AwareOfQuale DeterminacyRelevant x hOutside hD
+    exact fun hD => off_ledger_determinacy_illicit x hOutside hD
   · right
     exact h
 

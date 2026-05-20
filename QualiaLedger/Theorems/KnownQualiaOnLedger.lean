@@ -13,6 +13,8 @@ set_option autoImplicit false
 
 namespace QualiaLedger
 
+universe u v
+
 /--
 **Theorem 55.1 (Known Qualia Ledger Theorem):** If a subject is aware of
 qualitative content x, then x is ledger-represented.
@@ -23,8 +25,8 @@ is that this is the right definition—awareness, report, discrimination,
 memory, and self-modeling are ledger-level states.
 -/
 theorem known_qualia_on_ledger
-    {W : Type*} {F : SemanticSelfDescription.SelfSemanticFrame W}
-    {Subject : Type*} {AwareOfQuale : Subject → F.Claim → Prop}
+    {W : Type u} {F : SemanticSelfDescription.SelfSemanticFrame W}
+    {Subject : Type v} {AwareOfQuale : Subject → F.Claim → Prop}
     (S : Subject) (x : F.Claim) (h : AwareOfQuale S x) :
     LedgerRepresented F Subject AwareOfQuale x :=
   aware_implies_ledger_represented F Subject AwareOfQuale S x h
