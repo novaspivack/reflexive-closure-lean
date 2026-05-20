@@ -72,11 +72,13 @@ theorem qualitative_manifestation
     @AlphaManifestation Ledger Ground OntologicalGround LedgerActuality GroundIsSyntax
       GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
       SelfActualizingLedger W F Subject AwareOfQuale
-      (fun (c : F.Claim) (l : Ledger) => ContentOfQualia c l) x α R := by
+      (fun (c : F.Claim) (l : Ledger) => @ContentOfQualia W F Subject AwareOfQuale c l)
+      x α R := by
   have hPresence : PhenomenalPresence F Subject AwareOfQuale x :=
-    presence_from_known_quale F Subject AwareOfQuale x hKnown
-  have hContent : ContentOfQualia x R := hKnown
-  let contentOf (c : F.Claim) (ledger : Ledger) : Prop := ContentOfQualia c ledger
+    presence_from_known_quale x hKnown
+  have hContent : @ContentOfQualia W F Subject AwareOfQuale x R := by
+    simpa using hKnown
+  let contentOf (c : F.Claim) (ledger : Ledger) : Prop := @ContentOfQualia W F Subject AwareOfQuale c ledger
   obtain ⟨α, hNG⟩ := alpha_theorem F S toTheory toMeta OffLedger DeterminacyRelevant SemanticNull
     hBridgeSyn hBridgeExt hBridgeGhost R hExists
   have hWitnessed : @GroundedExistence.GroundedInAlphaWitnessed Ledger Ground F.Claim
