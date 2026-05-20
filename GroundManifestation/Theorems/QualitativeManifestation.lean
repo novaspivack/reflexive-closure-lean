@@ -64,6 +64,26 @@ variable (hBridgeGhost : ∀ (g : Ground) (R : Ledger) (hGround : OntologicalGro
 **Theorem 66.3 (Qualitative manifestation):** Known qualia are Alpha-manifestations.
 -/
 theorem qualitative_manifestation
+  (F : SemanticSelfDescription.SelfSemanticFrame W)
+  [SemanticSelfReference.SemanticNegation F]
+  [SemanticSelfReference.SelfReferenceFrame F]
+  (S : NemS.Reflexive.ReflexiveTheorySpace)
+  (toTheory : Ledger → S.Theory)
+  (toMeta : Ground → S.Theory)
+  (AwareOfQuale : Subject → F.Claim → Prop)
+  (OffLedger : F.Claim → Prop)
+  (DeterminacyRelevant : F.Claim → Prop)
+  (SemanticNull : F.Claim → Prop)
+  (hBridgeSyn : ∀ (g : Ground) (R : Ledger) (hGround : OntologicalGround g R),
+    (hSyn : GroundIsSyntax g) → LedgerGround.SyntacticGroundingInducesExhaustion F g R hGround hSyn)
+  (hBridgeExt : ∀ (g : Ground) (R : Ledger) (hGround : OntologicalGround g R),
+    (hExt : GroundIsExternalEqualStatus g) →
+      @LedgerGround.ExternalGroundingInterpretation Ledger Ground OntologicalGround
+        GroundIsExternalEqualStatus S toTheory toMeta g R hGround hExt)
+  (hBridgeGhost : ∀ (g : Ground) (R : Ledger) (hGround : OntologicalGround g R),
+    (hGhost : GroundIsGhost g) →
+      @LedgerGround.GhostGroundingInterpretation Ledger Ground OntologicalGround GroundIsGhost
+        F.Claim OffLedger DeterminacyRelevant SemanticNull g R hGround hGhost)
   (R : Ledger) (x : F.Claim)
   (hExists : @NontrivialReflexiveRealityExists Ledger LedgerActuality SelfActualizingLedger R)
   (hKnown : LedgerRepresented F Subject AwareOfQuale x)
@@ -72,25 +92,21 @@ theorem qualitative_manifestation
     @AlphaManifestation Ledger Ground OntologicalGround LedgerActuality GroundIsSyntax
       GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
       SelfActualizingLedger W F Subject AwareOfQuale
-      (fun (c : F.Claim) (l : Ledger) => @ContentOfQualia W F Subject AwareOfQuale c l)
+      (fun (c : F.Claim) (_l : Ledger) => LedgerRepresented F Subject AwareOfQuale c)
       x α R := by
   have hPresence : PhenomenalPresence F Subject AwareOfQuale x :=
-    presence_from_known_quale x hKnown
-  have hContent : @ContentOfQualia W F Subject AwareOfQuale x R := by
-    simpa using hKnown
-  let contentOf (c : F.Claim) (ledger : Ledger) : Prop := @ContentOfQualia W F Subject AwareOfQuale c ledger
+    @presence_from_known_quale W F Subject AwareOfQuale x hKnown
+  have hContent : LedgerRepresented F Subject AwareOfQuale x := hKnown
+  let contentOf (c : F.Claim) (_ledger : Ledger) : Prop :=
+    LedgerRepresented F Subject AwareOfQuale c
   obtain ⟨α, hNG⟩ := alpha_theorem F S toTheory toMeta OffLedger DeterminacyRelevant SemanticNull
     hBridgeSyn hBridgeExt hBridgeGhost R hExists
   have hWitnessed : @GroundedExistence.GroundedInAlphaWitnessed Ledger Ground F.Claim
       OntologicalGround LedgerActuality GroundIsSyntax GroundIsObjectLevelSemantics
       GroundIsExternalEqualStatus GroundIsGhost SelfActualizingLedger contentOf x α R :=
     ⟨hNG, hContent, hExists.1⟩
-  have hGroundMode : @GroundMode Ledger Ground OntologicalGround LedgerActuality GroundIsSyntax
-      GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
-      SelfActualizingLedger W F Subject AwareOfQuale contentOf x α R :=
+  have hGroundMode :=
     manifestation_bridge F Subject AwareOfQuale contentOf x α R hPresence hWitnessed hNoSyn
-  exact ⟨α, @AlphaManifestation Ledger Ground OntologicalGround LedgerActuality GroundIsSyntax
-      GroundIsObjectLevelSemantics GroundIsExternalEqualStatus GroundIsGhost
-      SelfActualizingLedger W F Subject AwareOfQuale contentOf x α R ⟨hGroundMode, hPresence⟩⟩
+  exact ⟨α, ⟨hGroundMode, hPresence⟩⟩
 
 end GroundManifestation

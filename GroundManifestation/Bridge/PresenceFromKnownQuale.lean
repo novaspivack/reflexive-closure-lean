@@ -31,7 +31,7 @@ def KnownQuale (x : F.Claim) : Prop :=
 /--
 **Theorem 66.1 (Presence from known quale):** Known qualia have phenomenal presence.
 -/
-theorem presence_from_known_quale (x : F.Claim) (h : KnownQuale F Subject AwareOfQuale x) :
+theorem presence_from_known_quale (x : F.Claim) (h : @KnownQuale W F Subject AwareOfQuale x) :
   PhenomenalPresence F Subject AwareOfQuale x :=
   h
 
