@@ -95,7 +95,7 @@ theorem qualitative_manifestation
       (fun (c : F.Claim) (_l : Ledger) => LedgerRepresented F Subject AwareOfQuale c)
       x α R := by
   have hPresence : PhenomenalPresence F Subject AwareOfQuale x :=
-    @presence_from_known_quale W F Subject AwareOfQuale x hKnown
+    presence_from_known_quale F Subject AwareOfQuale x hKnown
   have hContent : LedgerRepresented F Subject AwareOfQuale x := hKnown
   let contentOf (c : F.Claim) (_ledger : Ledger) : Prop :=
     LedgerRepresented F Subject AwareOfQuale c
