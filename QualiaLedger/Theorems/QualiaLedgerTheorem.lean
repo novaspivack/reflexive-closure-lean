@@ -32,15 +32,15 @@ theorem known_qualia_irreducible_semantic
     [SemanticSelfReference.SelfReferenceFrame F]
     {Subject : Type*} {AwareOfQuale : Subject → F.Claim → Prop}
     (S : Subject) (x : F.Claim) (hAware : AwareOfQuale S x)
-    (hNoSyn : ¬ ToSyntaxSemantics.PurelySyntacticQualiaEncoding F)
+    (hNoSyn : ¬ PurelySyntacticQualiaEncoding F)
     (yesClaimFor : ∀ S' : SyntaxSemantics.SyntacticTheory F,
       S'.internallyRealized → SyntaxSemantics.SemanticExhaustive F S' →
       ∀ c : F.Code, SemanticSelfReference.YesClaimData F
         (SyntaxSemantics.inducedSelfTheory F S') c) :
     LedgerRepresented F Subject AwareOfQuale x ∧
-    ¬ ToSyntaxSemantics.PurelySyntacticQualiaEncoding F := by
+    ¬ PurelySyntacticQualiaEncoding F := by
   constructor
-  · exact LedgerRepresentation.aware_implies_ledger_represented F Subject AwareOfQuale S x hAware
+  · exact aware_implies_ledger_represented F Subject AwareOfQuale S x hAware
   · exact hNoSyn
 
 end QualiaLedger

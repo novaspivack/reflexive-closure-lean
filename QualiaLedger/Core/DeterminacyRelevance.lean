@@ -22,15 +22,9 @@ universe u v
 variable {W : Type u} (F : SemanticSelfDescription.SelfSemanticFrame W)
 variable (Subject : Type v)
 variable (AwareOfQuale : Subject → F.Claim → Prop)
-
-/--
-**DeterminacyRelevant (x)** — Qualitative content x affects determinacy-relevant
-system structure: reports, memory, behavior, discrimination, self-models, or
-other truth-relevant structure.
-
-If x is off-ledger but determinacy-relevant, it would constitute a "free bit"
-that affects outcomes without being represented—violating no-free-bits (Paper 27).
--/
+-- DeterminacyRelevant: x affects determinacy-relevant system structure
+-- (reports, memory, behavior, discrimination, self-models).
+-- If off-ledger and determinacy-relevant, constitutes a "free bit" violating Paper 27.
 variable (DeterminacyRelevant : F.Claim → Prop)
 
 /--
@@ -38,17 +32,14 @@ variable (DeterminacyRelevant : F.Claim → Prop)
 formally accounted-for system structure.
 
 Off-ledger qualia that are not determinacy-relevant are inert: they do no
-explanatory work. They are the "ghost branch" left over after the known-qualia
-argument—formally irrelevant.
+explanatory work.
 -/
 def ExplanatorilyInert (x : F.Claim) : Prop :=
   ¬ DeterminacyRelevant x
 
 /--
 **No-free-bits for off-ledger determinacy (Paper 27 bridge):** If qualia are
-off-ledger and determinacy-relevant, contradiction. Off-ledger content that
-affects reports, memory, behavior, etc. would be a "free bit" not represented
-in the ledger—violating the internality requirement of Paper 27.
+off-ledger and determinacy-relevant, contradiction.
 -/
 axiom off_ledger_determinacy_illicit
     (x : F.Claim)
@@ -66,7 +57,7 @@ theorem off_ledger_inert_or_illicit
     (DeterminacyRelevant x → False) ∨ ExplanatorilyInert x := by
   by_cases h : DeterminacyRelevant x
   · left
-    exact fun hD => off_ledger_determinacy_illicit F Subject AwareOfQuale x hOutside hD
+    exact fun hD => off_ledger_determinacy_illicit F Subject AwareOfQuale DeterminacyRelevant x hOutside hD
   · right
     exact h
 

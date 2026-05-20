@@ -24,9 +24,9 @@ memory, and self-modeling are ledger-level states.
 -/
 theorem known_qualia_on_ledger
     {W : Type*} {F : SemanticSelfDescription.SelfSemanticFrame W}
-    {Subject : Type*} {AwareOfQuale : Subject → QualiaContent → Prop}
-    (S : Subject) (x : QualiaContent) (h : AwareOfQuale S x) :
+    {Subject : Type*} {AwareOfQuale : Subject → F.Claim → Prop}
+    (S : Subject) (x : F.Claim) (h : AwareOfQuale S x) :
     LedgerRepresented F Subject AwareOfQuale x :=
-  LedgerRepresentation.aware_implies_ledger_represented F Subject AwareOfQuale S x h
+  aware_implies_ledger_represented F Subject AwareOfQuale S x h
 
 end QualiaLedger
