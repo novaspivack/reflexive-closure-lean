@@ -51,7 +51,7 @@ by no-free-bits) or they are not determinacy-relevant (hence explanatorily inert
 theorem off_ledger_inert_or_illicit
     (x : F.Claim)
     (hOutside : QualiaOutsideLedger F Subject AwareOfQuale x) :
-    (DeterminacyRelevant x → False) ∨ ExplanatorilyInert x := by
+    (DeterminacyRelevant x → False) ∨ (¬ DeterminacyRelevant x) := by
   by_cases h : DeterminacyRelevant x
   · left
     exact fun hD => off_ledger_determinacy_illicit x hOutside hD
