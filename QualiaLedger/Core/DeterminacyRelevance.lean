@@ -21,7 +21,7 @@ universe u v
 
 variable {W : Type u} (F : SemanticSelfDescription.SelfSemanticFrame W)
 variable (Subject : Type v)
-variable (AwareOfQuale : Subject → QualiaContent → Prop)
+variable (AwareOfQuale : Subject → F.Claim → Prop)
 
 /--
 **DeterminacyRelevant (x)** — Qualitative content x affects determinacy-relevant
@@ -31,7 +31,7 @@ other truth-relevant structure.
 If x is off-ledger but determinacy-relevant, it would constitute a "free bit"
 that affects outcomes without being represented—violating no-free-bits (Paper 27).
 -/
-variable (DeterminacyRelevant : QualiaContent → Prop)
+variable (DeterminacyRelevant : F.Claim → Prop)
 
 /--
 **ExplanatorilyInert (x)** — Qualitative content x makes no difference to any
@@ -41,7 +41,7 @@ Off-ledger qualia that are not determinacy-relevant are inert: they do no
 explanatory work. They are the "ghost branch" left over after the known-qualia
 argument—formally irrelevant.
 -/
-def ExplanatorilyInert (x : QualiaContent) : Prop :=
+def ExplanatorilyInert (x : F.Claim) : Prop :=
   ¬ DeterminacyRelevant x
 
 /--
@@ -51,8 +51,8 @@ affects reports, memory, behavior, etc. would be a "free bit" not represented
 in the ledger—violating the internality requirement of Paper 27.
 -/
 axiom off_ledger_determinacy_illicit
-    (x : QualiaContent)
-    (hOutside : QualiaOutsideLedger x)
+    (x : F.Claim)
+    (hOutside : QualiaOutsideLedger F Subject AwareOfQuale x)
     (hDet : DeterminacyRelevant x) : False
 
 /--
@@ -61,12 +61,12 @@ ledger-represented, then either they are determinacy-relevant (hence illicit
 by no-free-bits) or they are not determinacy-relevant (hence explanatorily inert).
 -/
 theorem off_ledger_inert_or_illicit
-    (x : QualiaContent)
-    (hOutside : QualiaOutsideLedger x) :
+    (x : F.Claim)
+    (hOutside : QualiaOutsideLedger F Subject AwareOfQuale x) :
     (DeterminacyRelevant x → False) ∨ ExplanatorilyInert x := by
   by_cases h : DeterminacyRelevant x
   · left
-    exact fun hD => off_ledger_determinacy_illicit x hOutside hD
+    exact fun hD => off_ledger_determinacy_illicit F Subject AwareOfQuale x hOutside hD
   · right
     exact h
 

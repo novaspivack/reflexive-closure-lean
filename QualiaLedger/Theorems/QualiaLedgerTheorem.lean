@@ -30,8 +30,8 @@ theorem known_qualia_irreducible_semantic
     {W : Type*} (F : SemanticSelfDescription.SelfSemanticFrame W)
     [SemanticSelfReference.SemanticNegation F]
     [SemanticSelfReference.SelfReferenceFrame F]
-    {Subject : Type*} {AwareOfQuale : Subject → QualiaContent → Prop}
-    (S : Subject) (x : QualiaContent) (hAware : AwareOfQuale S x)
+    {Subject : Type*} {AwareOfQuale : Subject → F.Claim → Prop}
+    (S : Subject) (x : F.Claim) (hAware : AwareOfQuale S x)
     (hNoSyn : ¬ ToSyntaxSemantics.PurelySyntacticQualiaEncoding F)
     (yesClaimFor : ∀ S' : SyntaxSemantics.SyntacticTheory F,
       S'.internallyRealized → SyntaxSemantics.SemanticExhaustive F S' →
